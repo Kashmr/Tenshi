@@ -1,0 +1,25 @@
+Upload_form.php :
+
+- Nombre del Paciente
+- dia -> save as string
+- hora -> save as string
+- Hospital ->Select hospital de una lista o ingresar uno nuevo
+- Doctor -> Seleccionar Doctor de una lista o ingresar uno nuevo
+- Especialidad -> Seleccionar de una lista o ingresar uno nuevo
+- Requisitos - text
+
+===================================
+
+- sanitize user input
+- insert into MySQL
+
+====================================
+
+Index.php
+	Navbar: 
+		- Ingresar Turno
+		- Ver turnos del dia y del dia siguiente
+		- Cambiar un turno
+		- Eliminar turno
+	
+		
