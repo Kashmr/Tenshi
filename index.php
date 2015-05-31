@@ -1,3 +1,6 @@
+<?php
+	include("connection.php");
+?>
 <html>
 <head>
 	<title>Home</title>
@@ -6,7 +9,7 @@
 <body>
 	<!-- Include Navigation bar here -->
 	<ul>
-		<li>Ver turnos</li>
+		<li>Ver turnos</li> <!-- list_app_dates.php -->
 		<li>Ingresar turno</li>
 		<li>Cambiar un turno</li>
 		<li>Eliminar turno</li>
