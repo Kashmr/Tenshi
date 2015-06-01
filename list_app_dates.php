@@ -7,7 +7,18 @@
 	//creates a MySQL connection
 	$con = connection($db_info);
 
-	$sql = "SELET * FROM appointments WHERE date = ".date('Y/m/d')."";
+	//Dates were stored as string with dashes
+	//so we format the current date string with dashes for compatibily
+	$date = date('Y-m-d');
+
+	$month = date('-m-');
+
+	echo $date."<br />";
+
+	//$sql = "SELECT * FROM appointments WHERE date = '".$date."'";
+	
+	//Selects all records with the current month
+	$sql = "SELECT * FROM appointments WHERE date LIKE '%".$month."%'";
 
 	$result = mysqli_query($con,$sql);
 
