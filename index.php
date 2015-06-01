@@ -9,10 +9,10 @@
 <body>
 	<!-- Include Navigation bar here -->
 	<ul>
-		<li>Ver turnos</li> <!-- list_app_dates.php -->
-		<li>Ingresar turno</li>
-		<li>Cambiar un turno</li>
-		<li>Eliminar turno</li>
+		<li><a href="list_app_dates.php">Ver turnos</a></li> <!-- list_app_dates.php -->
+		<li><a href="upload_form.php">Ingresar Turno</a></li>
+		<li><a href="mod_app.php">Cambiar un turno</a></li>
+		<li><a href="del_app.php">Eliminar turno</a></li>
 	</ul>
 
 
