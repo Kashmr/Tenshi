@@ -18,6 +18,7 @@
 		else
 		{
 			echo "Turno guardado con exito!<br/>";
+			header("Location: index.php");
 			die();
 		}
 
