@@ -1,89 +1,83 @@
 <?php
 
-//Show all errors and warnings.
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-//////////////////////////////
-
-
-$daysInaMonth = date("t");
-
-
-
-//$cDate = date("d");
-$cMonth = date("n");
-$cYear = date("Y");
-
-//echo $cMonth;
-
-//$cDateName = date("D");
-
-$firstDayMonth = date("D",mktime(0,0,0,$cMonth,1,$cYear));
-
-
-
-$firstDayMonthNumber = date("N",mktime(0,0,0,$cMonth,1,$cYear));
-
-
-//creates a month table
-
-echo "<table>";
-
-echo "<tr>";
-//echo "<th>";
-	echo "<td>Lun</td>";
-	echo "<td>Mar</td>";
-	echo "<td>Mier</td>";
-	echo "<td>Jue</td>";
-	echo "<td>Vie</td>";
-	echo "<td>Sab</td>";
-	echo "<td>Dom</td>";
-//echo "</th>";
-echo "</tr>";
-
-
-echo "<tr>";
-
-$j = 1;
-
-//for($i = 1; $i <= $daysInaMonth; $i++)
-for($i = 1; $i <= 35; $i++)
+function createCalendar()
 {
 
+	//lower case C stands for current.
 
-	if($i < (int)$firstDayMonthNumber)
+	$daysInaMonth = date("t");
+
+	$cMonth = date("n");
+	$cYear = date("Y");
+
+
+	$firstDayMonth = date("D",mktime(0,0,0,$cMonth,1,$cYear));
+
+
+
+	$firstDayMonthNumber = date("N",mktime(0,0,0,$cMonth,1,$cYear));
+
+
+	//creates a month table
+
+	echo "<table>";
+
+	echo "<tr>";
+	//echo "<th>";
+		echo "<td>Lun</td>";
+		echo "<td>Mar</td>";
+		echo "<td>Mier</td>";
+		echo "<td>Jue</td>";
+		echo "<td>Vie</td>";
+		echo "<td>Sab</td>";
+		echo "<td>Dom</td>";
+	//echo "</th>";
+	echo "</tr>";
+
+
+	echo "<tr>";
+
+	$j = 1;
+
+	//for($i = 1; $i <= $daysInaMonth; $i++)
+	for($i = 1; $i <= 35; $i++)
 	{
-		//print empty data if index $i hasn't reached the first day of the week position
-		echo "<td></td>";
-	}
-	else
-	{
-		//check what's the real position of index $i 
-		//if it's not greater than the max days in this month, then prints the given index $i minus the position index of the first
-		//day of the month minus one, if it started on a wednesday then that position is 3 (scales goes from 1(mon) to 7(sunday))
-		//that last *minus one* it's there to prevent the counter from printing day 0. Technically, if there are 31 days, it will print from 0 to 30 without that last substraction.
-		if($i - (int)$firstDayMonthNumber < (int)$daysInaMonth)
+
+
+		if($i < (int)$firstDayMonthNumber)
 		{
-			echo "<td>".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";
-	
+			//print empty data if index $i hasn't reached the first day of the week position
+			echo "<td></td>";
 		}
 		else
 		{
-			echo "<td></td>";
-		}
+			//check what's the real position of index $i 
+			//if it's not greater than the max days in this month, then prints the given index $i minus the position index of the first
+			//day of the month minus one, if it started on a wednesday then that position is 3 (scales goes from 1(mon) to 7(sunday))
+			//that last *minus one* it's there to prevent the counter from printing day 0. Technically, if there are 31 days, it will print from 0 to 30 without that last substraction.
+			if($i - (int)$firstDayMonthNumber < (int)$daysInaMonth)
+			{
+				echo "<td>".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";
 		
+			}
+			else
+			{
+				echo "<td></td>";
+			}
+			
+		}
+
+		if($i % 7 == 0)
+		{
+			echo "</tr><tr>";
+		}
+
 	}
 
-	if($i % 7 == 0)
-	{
-		echo "</tr><tr>";
-	}
 
+
+
+
+	echo "</tr>";
+	echo "</table>";
 }
-
-
-
-
-
-echo "</tr>";
-echo "</table>";

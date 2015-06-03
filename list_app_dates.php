@@ -1,5 +1,6 @@
 <?php
 	include("dbf/connection.php");
+	include("calendar.php");
 
 	//set timezone to GTM-3 (Arg - Buenos Aires)
 	date_default_timezone_set("America/Argentina/Buenos_Aires");
@@ -32,7 +33,10 @@
 
 	}
 
-	
+	echo "<br />";
+
  	// Prints a Calendar
+ 	createCalendar();
+
 
 	
