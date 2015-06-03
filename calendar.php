@@ -1,7 +1,10 @@
 <?php
 
-function createCalendar()
+function createCalendar($days)
 {
+	//makes all values unique in array days
+
+	$finalDays = array_unique($days);
 
 	//lower case C stands for current.
 
@@ -57,8 +60,18 @@ function createCalendar()
 			//that last *minus one* it's there to prevent the counter from printing day 0. Technically, if there are 31 days, it will print from 0 to 30 without that last substraction.
 			if($i - (int)$firstDayMonthNumber < (int)$daysInaMonth)
 			{
-				echo "<td>".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";
-		
+				//echo "<td>".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";
+				
+				$realDay = (int)$i-((int)$firstDayMonthNumber-(int)1);
+
+				if(in_array($realDay,$finalDays))
+				{
+					echo "<td class=\"marked\">".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";
+				}
+				else
+				{
+					echo "<td>".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";	
+				}
 			}
 			else
 			{
@@ -67,6 +80,7 @@ function createCalendar()
 			
 		}
 
+		//ends table row every 7 days
 		if($i % 7 == 0)
 		{
 			echo "</tr><tr>";

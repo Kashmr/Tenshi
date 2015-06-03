@@ -1,4 +1,8 @@
+<link href="css/calendarstyle.css" type="text/css" rel="stylesheet">
 <?php
+	
+
+
 	include("dbf/connection.php");
 	include("calendar.php");
 
@@ -14,12 +18,13 @@
 
 	$month = date('-m-');
 
-	echo $date."<br />";
+	$daysArray = array();
+
 
 	//$sql = "SELECT * FROM appointments WHERE date = '".$date."'";
 	
 	//Selects all records with the current month
-	$sql = "SELECT * FROM appointments WHERE date LIKE '%".$month."%'";
+	$sql = "SELECT date FROM appointments WHERE date LIKE '%".$month."%'";
 
 	$result = mysqli_query($con,$sql);
 
@@ -27,16 +32,19 @@
 	{
 		while($row = mysqli_fetch_assoc($result) )
 		{
-			var_dump($row);
-			echo "<br />";
+
+			$dateExplode = explode("-",$row['date']);
+
+			//stores appointment date on array days
+			$daysArray[] = (int)$dateExplode[2];
 		}
 
 	}
 
-	echo "<br />";
+ 	// Prints a Calendar and pass an array with all the days that need be marked
+ 	createCalendar($daysArray);
 
- 	// Prints a Calendar
- 	createCalendar();
+ 	
 
 
 	
