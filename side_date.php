@@ -1,9 +1,6 @@
 <?php
 	
-
-
-	//include("dbf/connection.php");
-	//include("calendar.php");
+//Shows an appoitment table next to the calendar in index.php
 
 $db_info = [ "servername" => "localhost",
                "username" => "root",
