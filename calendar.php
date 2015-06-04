@@ -10,6 +10,8 @@ function createCalendar($days)
 
 	$daysInaMonth = date("t");
 
+	$today = date('d');
+
 	$cMonth = date("n");
 	$cYear = date("Y");
 
@@ -22,8 +24,11 @@ function createCalendar($days)
 
 
 	//creates a month table
-
-	echo "<table>";
+	echo "<div class=\"row\">";
+	//echo "<div class=\"col-xs-1\" >";
+	//echo "</div>";
+	echo "<div class=\"col-xs-6\" style=\"margin-left:15px;\" >";
+	echo "<table class=\"table table-bordered\" height=\"700px\">";
 
 	echo "<tr>";
 	//echo "<th>";
@@ -64,7 +69,9 @@ function createCalendar($days)
 				
 				$realDay = (int)$i-((int)$firstDayMonthNumber-(int)1);
 
-				if(in_array($realDay,$finalDays))
+				//marks a day if it has an appointment (or going to have one), if It already happened, then just prints the day.
+
+				if(in_array($realDay,$finalDays) && $realDay >= (int)$today )
 				{
 					echo "<td class=\"marked\">".((int)$i-((int)$firstDayMonthNumber-(int)1))."</td>";
 				}
@@ -94,4 +101,17 @@ function createCalendar($days)
 
 	echo "</tr>";
 	echo "</table>";
+	echo "</div>";
+
+	//echo "<div class=\"col-xs-1\">";
+	//echo "</div>";
+
+	echo "<div class=\"col-xs-3\">";
+		include("side_date.php");
+	echo "</div>";
+
+	echo "</div>";
 }
+
+?>
+

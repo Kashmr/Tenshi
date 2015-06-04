@@ -1,6 +1,5 @@
 <?php 
 	//include other php files here
-	include("list_app_dates.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,15 +7,15 @@
 	include("head.php");
 ?>
 <body>
-<!-- <div class="container"> -->
+
 	<?php 
 		include("navbar.php");
 		//include("body.php");
 
-		createCalendar($xdaysArray);
+		include("upload_form.php");
 
 		include("jslib.php"); 
 	?>
-<!-- </div> -->
+
 </body>
 </html>

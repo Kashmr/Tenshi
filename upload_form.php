@@ -24,38 +24,63 @@
 
 	}
 ?>
+<div class="row">
+<div class="col-xs-3">
+</div>
 
-<form method="post" action="upload_form.php">
+<div class="col-xs-6">
+<form class="form" method="post" action="upload_form.php" role="form">
 	<!--  Pacient  -->
-	Patient:  <br />
-	<input type="text" name="a_patient"> <br />
+	<div class="form-group">
+		<label>Paciente:</label> <br />
+		<input type="text" name="a_patient" size="35">
+	</div>
 
 	<!--  Appointment Date  -->
-	Appointment Date: <br />
-	<input type="date" name="a_appointment" min="2015-01-01"> <br />
+	<div class="form-group">
+		<label>Dia del turno: </label><br/>
+		<input type="date" name="a_appointment" min="2015-01-01" size="35"> <br />
+	</div>
+
 
 	<!--  Appointment Time  -->
-	Time: <br />
-	<input type="time" name="a_time"> <br />
+	<div class="form-group">
+		<label>Hora del turno: </label> <br />
+		<input type="time" name="a_time" size="35"> <br />
+	</div>
 
 	<!--  Hospital's Name  -->
-	Hospital: <br />
-	<input type="text" name="a_hospital"> <br />
+	<div class="form-group">
+		<label>Hospital: </label><br/>
+		<input type="text" name="a_hospital" size="35"> <br />
+	</div>
 
 	<!--  Doctor's Name  -->
-	Doctor: <br />
-	<input type="text" name="a_doctor"> <br />
+	<div class="form-group">
+		<label>Doctor: </label><br/>
+		<input type="text" name="a_doctor" size="35"> <br />
+	</div>
 
 	<!--  Specialization  -->
-	Specialization: <br />
-	<input type="text" name="a_docspecialization"> <br />
+	<div class="form-group">
+		<label>Especializacion: </label><br/>
+		<input type="text" name="a_docspecialization" size="35"> <br />
+	</div>
 
 	<!--  Required Studies  -->
-	Required Studies: <br/>
-	<textarea name="a_reqstudies"></textarea> <br />
-	
+	<div class="form-group">
+		<label>Estudios requeridos: </label><br/>
+		<textarea name="a_reqstudies" rows="5" cols="37"></textarea> <br />
+	</div>
 
-	<input type="submit" value="Send">
+	<input type="submit" value="Agregar nuevo turno">
 
 		
 </form>
+</div>
+
+<div class="col-xs-3">
+</div>
+
+</div>
+

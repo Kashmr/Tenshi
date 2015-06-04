@@ -10,39 +10,39 @@
 	date_default_timezone_set("America/Argentina/Buenos_Aires");
 
 	//creates a MySQL connection
-	$con = connection($db_info);
+	$xcon = connection($db_info);
 
 	//Dates were stored as string with dashes
 	//so we format the current date string with dashes for compatibily
-	$date = date('Y-m-d');
+	$xdate = date('Y-m-d');
 
-	$month = date('-m-');
+	$xmonth = date('Y-m-');
 
-	$daysArray = array();
+	$xdaysArray = array();
 
 
 	//$sql = "SELECT * FROM appointments WHERE date = '".$date."'";
 	
-	//Selects all records with the current month
-	$sql = "SELECT date FROM appointments WHERE date LIKE '%".$month."%'";
+	//Selects all records with the current month and year
+	$xsql = "SELECT date FROM appointments WHERE date LIKE '".$xmonth."%'";
 
-	$result = mysqli_query($con,$sql);
+	$xresult = mysqli_query($xcon,$xsql);
 
-	if(mysqli_num_rows($result) > 0)
+	if(mysqli_num_rows($xresult) > 0)
 	{
-		while($row = mysqli_fetch_assoc($result) )
+		while($xrow = mysqli_fetch_assoc($xresult) )
 		{
 
-			$dateExplode = explode("-",$row['date']);
+			$dateExplode = explode("-",$xrow['date']);
 
 			//stores appointment date on array days
-			$daysArray[] = (int)$dateExplode[2];
+			$xdaysArray[] = (int)$dateExplode[2];
 		}
 
 	}
 
  	// Prints a Calendar and pass an array with all the days that need be marked
- 	createCalendar($daysArray);
+ 	
 
  	
 
